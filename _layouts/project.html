@@ -1,0 +1,80 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="main-graphic-container">
+    <div class="bg-graphic-background" ></div>
+    <div class="bg-graphic" style="background-image: url( {{ page.cover_image }} )"></div>
+
+    {%- if page.cover_video -%}
+    <video class="main-graphic wrapper" src="{{ page.cover_video }}" poster="{{ page.cover_image }}" controls>
+    </video>
+    {%- else -%}
+    <img class="main-graphic wrapper"
+      src="{{ page.cover_image }}">
+    </img>
+    {%- endif -%}
+  </div>
+
+  <div class="project-main-container">
+    <div class="wrapper project-main">
+
+      <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+        <p class="post-meta">
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+        </p>
+
+        {% if page.links.size > 0 %}
+        <ul class="links">
+          {% for link in page.links %}
+            {%- assign key = link[0] | downcase -%}
+            <li>
+              <a href="{{ link[1] }}" target="_blank" rel="noopener noreferrer">
+                <img class="link-icon"
+                {% if key == 'youtube' %}
+                  src="/icons/youtube.svg"
+                {% elsif key == 'discord' %}
+                  src="/icons/discord.svg"
+                {% elsif key == 'twitter' %}
+                  src="/icons/twitter.svg"
+                {% elsif key == 'twitch' %}
+                  src="/icons/twitch.svg"
+                {% elsif key == 'github' %}
+                  src="/icons/github.svg"
+                {% else %}
+                  src="/icons/globe.svg"
+                {% endif %}
+                >
+                <span class="link-text">{{ link[0] }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if page.discord_guild_id and page.links.Discord %}
+          <a href="{{ page.links.Discord }}" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/discord/{{ page.discord_guild_id }}?label={{ page.discord_guild_name }}"
+              alt="Join the {{ page.title }} Discord server">
+          </a>
+        {% endif %}
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      {%- if site.disqus.shortname -%}
+        {%- include disqus_comments.html -%}
+      {%- endif -%}
+
+      <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+    </div>
+  </div>
+</article>

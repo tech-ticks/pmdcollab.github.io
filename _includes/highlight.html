@@ -1,0 +1,48 @@
+{% assign sorted_highlighted_projects = site.projects | sort: 'priority' | reverse | where:'highlighted', true %}
+
+<div class="background-container-wrapper">
+  {%- for project in sorted_highlighted_projects -%}
+  <div class="background-container highlight-background{%- if forloop.index == 1 -%}-active{%- endif -%}">
+    {%- if project.cover_video -%}
+      <video src="{{ project.cover_video }}" poster="{{ project.cover_image }}" autoplay muted>
+    {%- else -%}
+      <img src="{{ project.cover_image }}">
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>
+
+<div class="highlight-projects-container">
+  <div class="highlight-switch-arrows">
+    <button type="button" class="left" id="prev-project-button">
+      <img src="media/down-arrow.svg" alt="Left">
+    </button>
+    <button type="button" class="right" id="next-project-button">
+      <img src="media/down-arrow.svg" alt="Right">
+    </button>
+  </div>
+
+  <div class="highlight-list-container">
+    <ul class="highlight-projects">
+      {%- for project in sorted_highlighted_projects -%}
+      <li class="project-highlight highlight-project{%- if forloop.index == 1 -%}-active{%- endif -%}">
+        <a class="project-link wrapper"
+          href="{{ project.url | relative_url }}"
+        >
+          <img class="project-icon" src="{{ project.icon }}" alt="{{ project.title }}">
+          <div class="project-text">
+            <h3>
+              {{ project.title | escape }}
+            </h3>
+            <p class="project-short-description">
+              {{ project.short_description }}
+            </p>
+          </div>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <img src="/media/down-arrow.svg" class="view-more-arrow" aria-hidden="true">
+  </div>
+</div>

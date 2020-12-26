@@ -1,0 +1,48 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.page-content {
+  padding-top: 0;
+}
+
+.post-header {
+  margin: 32px 0;
+}
+
+.site-title {
+  font-family: "Cafeteria Black";
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.site-header, .site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header {
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.06);
+}
+
+.site-header .wrapper {
+  width: 100%;
+
+  &::after {
+    content: unset;
+  }
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+iframe {
+  border: none;
+}

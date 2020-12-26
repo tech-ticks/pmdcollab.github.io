@@ -1,0 +1,58 @@
+---
+layout: home-layout
+---
+
+<div class="home">
+
+  <div>
+    {{ content }}
+
+    {%- if site.projects.size > 0 -%}
+      <h2 class="post-list-heading">More projects</h2>
+      <ul class="project-list">
+        {% assign sorted_projects = site.projects | sort: 'priority' | sort:'highlighted' %}
+        {%- for project in sorted_projects reversed -%}
+        <li>
+          <a class="project-link" href="{{ project.url | relative_url }}">
+            <img class="project-icon" src="{{ project.icon }}" alt="{{ project.title }}">
+            <div class="project-text">
+              <h3>
+                {{ project.title | escape }}
+              </h3>
+              <p class="project-short-description">
+                {{ project.short_description }}
+              </p>
+            </div>
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    </div>
+
+  <aside>
+    {%- if site.posts.size > 0 -%}
+      <h2>{{ page.list_title | default: "Posts" }}</h2>
+      <ul class="post-list">
+        {%- for post in site.posts -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <h2>Join the {{ site.discord_guild_name }} Discord server!</h2>
+    <iframe class="discord-widget" src="https://discordapp.com/widget?id={{ site.discord_guild_id }}&theme=light" width="350" height="500"></iframe>
+  </aside>
+
+</div>
