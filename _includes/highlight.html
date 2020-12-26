@@ -4,7 +4,7 @@
   {%- for project in sorted_highlighted_projects -%}
   <div class="background-container highlight-background{%- if forloop.index == 1 -%}-active{%- endif -%}">
     {%- if project.cover_video -%}
-      <video src="{{ project.cover_video }}" poster="{{ project.cover_image }}" autoplay muted>
+      <video src="{{ project.cover_video }}" poster="{{ project.cover_image }}" autoplay muted loop>
     {%- else -%}
       <img src="{{ project.cover_image }}">
     {%- endif -%}
