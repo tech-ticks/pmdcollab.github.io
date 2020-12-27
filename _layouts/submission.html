@@ -1,0 +1,180 @@
+---
+layout: default
+---
+<article class="post h-entry wrapper" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Submission form</h1>
+  </header>
+
+  <p class="description">All fields marked with * are required.</p>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <form id="submit-form">
+      <div class="form-group">
+        <label for="username">Discord user name*</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <p class="description">Your Discord username, including the #XXXX suffix.</p>
+
+      <div class="form-group">
+        <label for="title">Project name*</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <p class="description">If you're using the term <i>Pokémon</i> in your title, please enter it with an accent <i>é</i>.</p>
+
+      <div class="form-group">
+        <label for="category">Category*</label>
+        <select name="category" id="category">
+          <option value="romhacks">ROM Hack</option>
+          <option value="fangames">Fangame</option>
+          <option value="misc">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="short_description">Short description*</label>
+        <textarea id="short_description" name="short_description" required></textarea>
+      </div>
+      <p class="description">
+        This should only be one sentence long.
+        You can add a longer description below.
+      </p>
+
+      <h2>Media</h2>
+      <p class="description">
+        In general, you should upload images in the JPEG format. If your images
+        feature a lot of flat colors, however, consider uploading PNGs instead.
+      </p>
+
+      <p class="description">
+        If your project primarily features pixel art, please upscale your images with a
+        <b>nearest-neighbor filter</b> in Photoshop or GIMP. Submissions with blurry
+        pixel art images will be rejected.
+      </p>
+
+      <div class="form-group">
+        <label for="icon">Icon*</label>
+        <input type="file" id="icon" name="icon" required>
+      </div>
+      <p class="description">
+        A project icon that must have the same dimensions in width and height.
+      </p>
+
+      <div class="form-group">
+        <label for="cover_image">Cover image*</label>
+        <input type="file" id="cover_image" name="cover_image" required>
+      </div>
+      <p class="description">
+        Cover image for your project with a reasonably high resolution.
+        Note that this image will be cut off to fit into the designated space,
+        so favor clean images over screenshots with textboxes.
+        You can include images you have more control over in the page content
+        box below.
+      </p>
+
+      <div class="form-group">
+        <label for="cover_video">Cover video</label>
+        <input id="cover_video" name="cover_video"></input>
+      </div>
+      <p class="description">
+        A link to a cover video. This can be a link to YouTube or any other site.
+        Adding a cover video is optional but highly recommended.
+        Note that this video will be cut off to fit into the designated space,
+        so favor clean footage over dialogue with textboxes.
+        We'll host this video, so it should be short (~2 minutes max) and
+        have a reasonable resolution (at least 720p or 1080p, we'll scale
+        down higher resolution videos).
+      </p>
+
+      <h2>Links</h2>
+
+      <p class="description">
+        If you want to add links to other sites that aren't listed here, write us on Discord.
+      </p>
+
+      <div class="form-group">
+        <label for="discord_guild_id">Discord Server ID</label>
+        <input type="text" id="discord_guild_id" name="discord_guild_id">
+      </div>
+      <p class="description">
+        <a href="https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-" 
+            target="_blank">
+          ID of your Discord server
+        </a> if you have one.
+      </p>
+
+      <div class="form-group">
+        <label for="discord_guild_name">Discord server name</label>
+        <input type="text" id="discord_guild_name" name="discord_guild_name">
+      </div>
+
+      <div class="form-group">
+        <label for="link-discord">Discord server invite link</label>
+        <input type="text" id="link-discord" name="link-discord" data-linkname="Discord">
+      </div>
+
+      <div class="form-group">
+        <label for="link-website">Project website link</label>
+        <input type="text" id="link-website" name="link-website" data-linkname="Website">
+      </div>
+
+      <div class="form-group">
+        <label for="link-projectpokemon">Project Pokémon post link</label>
+        <input type="text" id="link-projectpokemon" name="link-projectpokemon" data-linkname="Project Pokémon">
+      </div>
+
+      <div class="form-group">
+        <label for="link-youtube">YouTube link</label>
+        <input type="text" id="link-youtube" name="link-youtube" data-linkname="YouTube">
+      </div>
+
+      <div class="form-group">
+        <label for="link-twitch">Twitch link</label>
+        <input type="text" id="link-twitch" name="link-twitch" data-linkname="Twitch">
+      </div>
+
+      <div class="form-group">
+        <label for="link-github">GitHub link</label>
+        <input type="text" id="link-github" name="link-github" data-linkname="GitHub">
+      </div>
+
+      <div class="form-group">
+        <label for="link-twitter">Twitter link</label>
+        <input type="text" id="link-twitter" name="link-twitter" data-linkname="Twitter">
+      </div>
+
+      <h2>Project page</h2>
+
+      <div class="form-group">
+        <label for="content">Project page content*</label>
+      </div>
+      <textarea id="content" name="content" class="markdown"></textarea>
+      <p class="description">
+        Add any content to your page here. It can be formatted as Markdown or HTML.
+        Feel free to include images, YouTube videos etc. If you need custom CSS,
+        please reach out to us.
+      </p>
+
+      <h2>Other data</h2>
+      <div class="form-group">
+        <label for="notes">Note to moderators</label>
+        <textarea id="notes" name="notes"></textarea>
+      </div>
+      <p class="description">
+        If there's anything else you want us to know, enter it here.
+        This won't be displayed on PMDCollab.
+      </p>
+
+      <button id="submit-button">Submit</button>
+
+    </form>
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script src="https://unpkg.com/jszip@3.5.0/dist/jszip.min.js"></script>
+<script src="/scripts/submission.js"></script>
